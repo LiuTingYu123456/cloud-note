@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/customScrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/jsTree/style.min.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>云笔记</title>
+    <style>
+        html,body{height:100%;}
+        body{overflow-y: hidden;}
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <div class="md2018121001lty clearfix">
+            <div class="logo-cloud pull-left text-center">
+                <img src="css/img/cloud-logo.png" alt="">
+            </div>
+            <ul class="nav-list pull-left">
+                <li class="active"><a href="#">云笔记</a></li>
+                <li><a href="#">云协作</a></li>
+            </ul>
+            <!-- 个人中心 -->
+            <div class="drop-menu-lty pull-right user-area">
+                <div class="user-center text-center">个人中心</div>
+                <ul class="drop-menu-list">
+                    <li><a href="#">设置</a></li>
+                    <li class="split-line"></li>
+                    <li><a href="#">会员中心</a></li>
+                    <li><a href="#">消息中心</a></li>
+                    <li><a href="#">满意度调查</a></li>
+                    <li class="split-line"></li>
+                    <li><a href="#">退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-body" style="height:100%;">
+        <div class="md2018121002lty">
+            <div class="left-con" id="js_left_slide">
+                <div class="content" >
+                    <div class="md-hd">
+                        <div class="create drop-menu-lty">
+                            <div class="create-new">
+                                <i class="cusfont cusfont-plus"></i>
+                                <span class="create-text">新建</span>
+                                <i class="cusfont cusfont-arrow-down"></i>
+                            </div>
+                            <ul class="drop-menu-list">
+                                <li  id="js_create_file"><a href="javascript:;">新建笔记</a></li>
+                                <li id="js_create_folder"><a href="javascript:;" >新建文件夹</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-content">
+                        <div class="sidebar-item jstree-node " id="js_init_jstree">
+
+                        </div>
+                        <!-- <div class="sidebar-item cur">
+                        <i class="cusfont cusfont-star"></i>
+                        <div class="sidebar-item-text">我的收藏</div>
+                    </div>
+                    <div class="sidebar-item">
+                        <i class="cusfont cusfont-dustbin"></i>
+                        <div class="sidebar-item-text">回收站</div>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="right-con">
+                <div class="file-list">
+                    <div class="content">
+                        <div class="list-hd">
+                            <div class="input-search">
+                                <i class="cusfont cusfont-search"></i>
+                                <input type="text" class="inp-control" autocomplete="off" placeholder="搜索笔记标题...">
+                            </div>
+                        </div>
+                        <!-- 列表循环 -->
+                        <div class="file-con">
+                            <div class="file-area" id="js_file_slide">
+                                <div class="file-item top">
+                                    <!--状态:置顶-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">置顶状态1111111111111111111111</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item selected">
+                                    <!--状态:当前-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">当前状态2222222222222</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <!--状态:默认-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">默认状态33333333333333</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item collection">
+                                    <!--状态:收藏-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">收藏状态5555555555555555555</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="已收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item delete">
+                                    <!--状态:删除-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">删除状态444444444444444444</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="已收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <!--状态:默认-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">JFK技术的开发两地分居萨克点击发送的</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="已收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <!--状态:默认-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">JFK技术的开发两地分居萨克点击发送的</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="已收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <!--状态:默认-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">JFK技术的开发两地分居萨克点击发送的</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="已收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <!--状态:默认-->
+                                    <div class="title">
+                                        <i class="cusfont cusfont-edit"></i>
+                                        <div class="file-name">JFK技术的开发两地分居萨克点击发送的</div>
+                                        <span class="file-tool">
+                                            <i class="cusfont cusfont-to-top" title="置顶"></i>
+                                            <i class="cusfont cusfont-refresh" title="恢复"></i>
+                                            <i class="cusfont cusfont-star" title="已收藏"></i>
+                                            <i class="cusfont cusfont-dustbin" title="删除"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <span>d反对发射点内容文字内容文字内容文字内容文字内内容文字内容文字内容文字内容文字文字文字文字</span>
+                                    </div>
+                                    <div class="data-size">
+                                        <span class="file-date">2018-10-10</span>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右侧编辑区域 -->
+                <div class="note-area">
+                    <div class="md-hd">
+                        <div class="title pull-left"><input type="text" class="inp-tit" value="放假啊士大夫骄傲的时刻发觉上当了"></div>
+                        <div class="pull-right">
+                            <button class="save" type="button">保存</button>
+                            <span class="collection" id="js_collection"><i class="cusfont cusfont-star"></i></span>
+                        </div>
+                    </div>
+                    <div class="md-bd" id="js_ckeditor_area">
+                        <textarea id="t_cke_01" name="t_cke_01_n"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/layer/layer.js"></script>
+    <script src="js/ckeditor/ckeditor.js"></script>
+    <script src="js/jsTree/jstree.min.js"></script>
+    <script src="js/customScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        $(function () {
+            //收藏(
+            $('#js_collection').click(function(){
+                var that_=$(this);
+                if(!that_.data('is-click')){
+                    that_.find('.cusfont-star').css({"color":"#f6ce62"});
+                    layer.msg('已收藏');
+                    that_.data('is-click',true);
+                }else{
+                    layer.confirm('确认取消收藏吗？',{'title':'提示'},function(index){
+                        that_.find('.cusfont-star').css({"color":"#9aa3b4"});
+                        that_.data('is-click',false);
+                        layer.close(index);
+                    });
+                }
+
+                
+            });
+            // 自定义滚动条
+            $("#js_left_slide,#js_file_slide").mCustomScrollbar({
+                theme: 'minimal-dark'
+            });
+            /* var i1, ref,node_;
+            function saveFun(obj, editNum) {
+                $.ajax({
+                    url:'jstree-demo.html',//后台保存数据路径
+                    data:{icon:obj['icon'],text:obj['text']},
+                    success:function (d) {
+                    //...执行创建
+                        //ref.refresh();//正式环境ajax返回成功后可直接刷新jstree 无需以下操作
+                        if(d){
+                            if (obj.editNum == 0) {
+                                ref.create_node(node_, {"icon": obj['icon'], "text": obj['text']});
+                                ref.open_node(node_);
+                            } else if (obj.editNum == 1) {
+                                ref.set_icon(node_, obj['icon']);//更改节点icon
+                                ref.set_text(node_, obj['text']);//更改节点内容
+                            }
+                        }
+                    }
+                })
+             }*/
+                var ref,sel_node_type;//ref:jstree实例 sel_node_type 当前选中节点type
+                var jstreeTools={
+                    "create":function(type){
+                        var cur_node=ref.get_selected();
+                        if(!cur_node.length){layer.msg('未选中节点');return false;}
+                        if(sel_node_type==="file"||sel_node_type==="dustbin"||sel_node_type==="star"){layer.msg('不能新建节点');return false;}
+                        var new_node=ref.create_node(cur_node[0],{"type":type});//create_node params: par:父节点 
+                        type==="file"?ref.set_text(new_node,'新建文件'):ref.set_text(new_node,'新建文件夹');
+                        if(new_node){ref.edit(new_node)}//put a node in edit mode 新建后可编辑
+                    }
+                }
+                // 新建文件
+                $('#js_create_file').click(function(){
+                    jstreeTools.create('file',sel_node_type);
+                });
+                //新建文件夹
+                $('#js_create_folder').click(function(){
+                    jstreeTools.create('folder',sel_node_type);
+                });
+
+            // 初始化jstree
+            $('#js_init_jstree').jstree({
+                "checkbox": {
+                    "three_state": false, //此属性选择是否级联,默认为true。
+                },
+                'core': {
+                    "check_callback": true, //允许修改节点
+                    'data': [{
+                            "id": "ajson1",
+                            "parent": "#",
+                            "text": "我的笔记本",
+                            "icon": 'cusfont cusfont-notes',
+                        },
+                        {
+                            "id": "ajson2",
+                            "parent": "#",
+                            "text": "我的收藏",
+                            "type":"star"
+                        },
+                        {
+                            "id": "ajson3",
+                            "parent": "#",
+                            "text": "回收站",
+                            "type":"dustbin"
+                        },
+                        {
+                            "id": "ajson4",
+                            "parent": "ajson1",
+                            "text": "新建文件夹",
+                            "type":"folder"
+                        },
+                        {
+                            "id": "ajson5",
+                            "parent": "ajson1",
+                            "text": "新建文件",
+                            "type":"file"
+                        }
+                    ]
+                },
+                'contextmenu': {
+                    show_at_node: false, //指示菜单是否应该与节点对齐。默认为true，否则使用鼠标坐标
+                    items: function (node) {
+                        var temp = {
+                            "create_file": {
+                                "icon": 'cusfont cusfont-word',
+                                "label": '新建文件',
+                               "separator_after": true, //表示在此项之后是否应该有分隔符
+                                "action": function (data) {
+                                    var pathL = node.parents.length;
+
+                                     ref =  $('#js_init_jstree').jstree(true);
+                                     jstreeTools.create('file');
+                                },
+                                "_disabled":function(){//菜单禁止操作（选中节点为根节点 则禁用添加同级）
+                                    return sel_node_type==='dustbin'||node.type==="file"||sel_node_type==='star';
+                                }
+                            },
+                            "create_folder": {
+                                "icon": 'cusfont cusfont-folder',
+                                "label": '新建文件夹',
+                                "separator_after": true, //表示在此项之后是否应该有分隔符
+                                "action": function (data) {
+                                    var pathL = node.parents.length;
+
+                                     ref =  $('#js_init_jstree').jstree(true);
+                                     jstreeTools.create('folder');
+                                },
+                                "_disabled":function(){//文件下禁止新建操作
+                                    return sel_node_type==='dustbin'||node.type==="file"||sel_node_type==='star';
+                                }
+                            },
+                            "rename": {
+                                "icon": 'cusfont cusfont-edit',
+                                "label": '重命名',
+                                "separator_after": true, //表示在此项之后是否应该有分隔符
+                                "action": function (data) {
+                                     ref = $('#js_init_jstree').jstree(true);
+                                    var cur_node=ref.get_selected();
+                                    if(!cur_node.length){return false;}
+                                    ref.edit(cur_node[0]);
+                                },
+                                "_disabled":function(){
+                                    return node.parent==="#";
+                                }
+                            },
+                            "del": {
+                                "icon": 'cusfont cusfont-close',
+                                "label": '删除',
+                               "separator_after": true, //表示在此项之后是否应该有分隔符
+                                "action": function (data) {
+                                    ref = $('#js_init_jstree').jstree(true);
+                                    var cur_node=ref.get_selected();
+                                    if(!cur_node.length){return false;}
+                                    ref.delete_node(cur_node);
+                                },
+                                "_disabled":function(){ 
+                                    return node.parent==="#";
+                                }
+                            }
+                        }
+                        return temp;
+                    }
+                },
+                'types':{//可自定义图标
+                    "folder":{
+                        'icon':"cusfont cusfont-folder"
+                    },
+                    "file":{
+                        'icon':"cusfont cusfont-word"
+                    },
+                    "dustbin":{
+                         "icon": 'cusfont cusfont-dustbin',
+                    },
+                    "star":{
+                         "icon": 'cusfont cusfont-star',
+                    },
+                },
+                'plugins': ['wholerow', 'contextmenu','types'], //wholerow 使每个节点显示块级别（不会出现节点之间的连线）
+                
+            }).on('ready.jstree',function(){
+                ref = $(this).jstree(true);
+            }).on('select_node.jstree',function(node,selected){
+                sel_node_type=selected.node.type;
+            });
+
+            // 富文本编辑器
+            var _CKE = CKEDITOR.replace('t_cke_01', {
+                //CKEditor 默认自动创建，如元素有id为对应id
+                imageUploadUrl: '../js/plugins/ckeditor/php/imgUp.php', //图片(上传)
+                height: $('#js_ckeditor_area').height() - 71,//高度不包括工具栏与底栏 仅内容区域高度
+            });
+            console.log(_CKE)
+            //CKEDITOR.resize('100%','800',false);
+
+        });
+    </script>
+</body>
+
+</html>
